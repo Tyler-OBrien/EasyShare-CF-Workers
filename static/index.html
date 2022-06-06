@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>EasyShare</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Share files securely" />
+  <meta name="author" content="Tyler O'Brien" />
+  <link href="index.css" rel="stylesheet">
+</head>
+
+<body>
+  <main>
+    <div class="card-container">
+      <h1>Easy Share</h1>
+      <h2>QR Code</h2>
+      <p>Visit this website from a device with a camera to scan</p>
+      <div id="qrcode"></div>
+      <div id="qr-code-full-region" width="100%"></div>
+      <input type="text" id="qr-code-value" value="" placeholder="Other Device Key">
+      <input type="button" id="qr-code-button" value="Connect" onclick="OnConnectButtonPress()">
+      <br />
+      <br />
+      <h3>You can also enter the value below manually on the other device:</h3>
+      <label>Your Public Key: </label>
+      <label id="publicKey">Generating Public Key...</label>
+      <br />
+      <label>Other Users Public Key: </label>
+      <label id="ScannedKey">Waiting for scanned/entered public key...</label>
+      <br />
+      <br />
+      <h4>Connection Status:</h4>
+      <label id="websocketstatus">Connecting..</label>
+      <br />
+      <br />
+      <div class="inputs">
+        <div class="floatLeft">
+          
+          <h4>Text to send</h4>
+          <input type="text" id="text-send-value" value="">
+          <input type="button" id="text-send-button" value="Send" onclick="OnSendText()" disabled> </div>
+        <div class="floatRight">
+          <h4>Pick a file to upload.</h4>
+          <input type="file" id="filepicker" multiple disabled/>
+          <br /> </div>
+      </div>
+      <hr>
+      <h2>Messages:</h2>
+      <div id="messages"> </div>
+    </div>
+
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+    integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.2.1/html5-qrcode.min.js" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+  <!-- Put sha512 hashes on these...  -->
+  <script src="index.js" crossorigin="anonymous"></script>
+  <script src="sodium.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
